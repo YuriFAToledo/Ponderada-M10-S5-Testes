@@ -33,7 +33,36 @@ public void Teste_Subtracao_Deve_Retornar_Resultado_Correto()
 ![""](testes_unitarios.png)
 
 ## Testes com Mock
-<!-- Aqui virá o conteúdo dos testes de mock -->
+
+### O que são Testes com Mock?
+Os Mocks permitem simular o comportamento de objetos e dependências externas de forma controlada. Isso permite testar classes e métodos que dependem de serviços externos.
+
+### Exemplos de Testes com Mock
+**Exemplo 1: Multiplicação simulada com Moq**
+```csharp
+[Fact]
+public void Teste_Mock_Multiplicacao_Deve_Retornar_Valor_Especifico()
+{
+    var mock = new Moq.Mock<IServico>();
+    mock.Setup(x => x.Multiplicar(2, 3)).Returns(6);
+
+    int resultado = mock.Object.Multiplicar(2, 3);
+    Assert.Equal(6, resultado);
+}
+```
+
+**Exemplo 2: Verificação de chamada de método**
+```csharp
+[Fact]
+public void Teste_Mock_Multiplicacao_Nao_Chamada()
+{
+    var mock = new Moq.Mock<IServico>();
+    mock.Verify(x => x.Multiplicar(It.IsAny<int>(), It.IsAny<int>()), Times.Never);
+}
+
+```
+
+![](testes_mock.png)
 
 ## Testes BDD
 <!-- Aqui virá o conteúdo dos testes BDD -->
