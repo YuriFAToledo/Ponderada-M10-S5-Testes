@@ -5238,6 +5238,7 @@
       "Microsoft.NET.Test.Sdk >= 17.8.0",
       "Moq >= 4.20.72",
       "SpecFlow >= 3.9.74",
+      "SpecFlow.Tools.MsBuild.generation >= 3.9.74",
       "SpecFlow.xUnit >= 3.9.74",
       "coverlet.collector >= 6.0.0",
       "xunit >= 2.5.3",
@@ -5295,6 +5296,10 @@
             "version": "[4.20.72, )"
           },
           "SpecFlow": {
+            "target": "Package",
+            "version": "[3.9.74, )"
+          },
+          "SpecFlow.Tools.MsBuild.generation": {
             "target": "Package",
             "version": "[3.9.74, )"
           },
