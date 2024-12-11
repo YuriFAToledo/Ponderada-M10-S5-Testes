@@ -65,4 +65,45 @@ public void Teste_Mock_Multiplicacao_Nao_Chamada()
 ![](testes_mock.png)
 
 ## Testes BDD
-<!-- Aqui virá o conteúdo dos testes BDD -->
+
+### O que são Testes BDD?
+Os Testes de Desenvolvimento Orientado por Comportamento (BDD) garantem que as funcionalidades do software estão funcionando como esperado. Eles se baseiam em cenários reais descritos em linguagem natural.
+
+### Exemplo de Teste BDD
+**Arquivo de Cenário: FeatureTests.feature**
+```gherkin
+Feature: Calculadora
+
+Cenário: Soma de dois números
+  Dado que eu tenho o número 2
+  E eu tenho o número 3
+  Quando eu somo os dois números
+  Então o resultado deve ser 5
+```
+
+**Arquivo de Passos: FeatureTestsSteps.cs**
+```csharp
+[Given(@"que eu tenho o número (.*)")]
+public void DadoQueEuTenhoONumero(int numero)
+{
+    if (_numero1 == 0)
+        _numero1 = numero;
+    else
+        _numero2 = numero;
+}
+
+[When(@"eu somo os dois números")]
+public void QuandoEuSomoOsDoisNumeros()
+{
+    _resultado = _numero1 + _numero2;
+}
+
+[Then(@"o resultado deve ser (.*)")]
+public void EntaoOResultadoDeveSer(int resultadoEsperado)
+{
+    Assert.Equal(resultadoEsperado, _resultado);
+}
+
+```
+
+![""](testes_bdd.png)
